@@ -29,7 +29,7 @@ class App extends Component {
 
 	handleChange(e, val) {
 		// console.log(e.currentTarget.value);
-		// console.log(val);
+		console.log( JSON.stringify(val) );
 
 		let url = `https://jsonplaceholder.typicode.com/posts/${val.id}`
 
@@ -37,11 +37,11 @@ class App extends Component {
 			method: 'PUT',
 			body: JSON.stringify(val),
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-type": "application/json; charset=UTF-8"
 			}
 		}).then(res => res.json())
-		.catch(error => console.error('Error:', error))
-		.then(response => console.log('Success:', response));
+			.catch(error => console.error('Error:', error))
+			.then(response => console.log('Success:', response));
 	}
 
 	render() {
